@@ -1,0 +1,71 @@
+<div class="row">
+  <div class="col-12 col-xl-6 mb-6 align-items-stretch">
+    <div class="card h-100 border-0 rounded-0">
+      <div class="card-title mb-1 p-3 d-flex">
+        <h6>Percentage Des Taches </h6>
+        <a class="btn ml-auto p-0 text-lightning"> <i class="fas fa-redo" (click)="sync(chart2);"></i> </a>
+
+      </div>
+      <div class="card-body">
+        <div class="chart-container d-flex h-100 align-items-center justify-content-center" style="position: relative;">
+          <canvas id="chart-doughnut" style="height:100%"></canvas>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="legend d-flex just">
+          <div class="flex-fill text-center"><span class="d-inline-block rounded-circle mr-2"
+                                                   style="background: #ff0066;"></span><small>Non-définies</small></div>
+          <div class="flex-fill text-center"><span class="d-inline-block rounded-circle mr-2"
+                                                   style="background: #0099ff;"></span><small>Irratrapable</small></div>
+          <div class="flex-fill text-center"><span class="d-inline-block rounded-circle mr-2"
+                                                   style="background: #ff9900;"></span><small>En retard</small></div>
+          <div class="flex-fill text-center"><span class="d-inline-block rounded-circle mr-2"
+                                                   style="background: #00ff99;"></span><small>On-time</small></div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-12 col-xl-6 mb-6 align-items-stretch">
+    <div class="card h-100 border-0 rounded-0">
+      <div class="card-title mb-1 p-3 d-flex">
+        <h6>Taches</h6>
+        <a class="btn ml-auto p-0 text-lightning"> <i class="fas fa-ellipsis-h"></i> </a>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive-md">
+          <div class="table-responsive">
+            <table class="table ">
+              <thead>
+              <tr>
+                <th style="width:30%;">ID</th>
+                <th style="width:30%;">Percentage</th>
+                <th style="width:30%;">Etat</th>
+              </tr>
+              </thead>
+              <tbody class="no-border-x">
+              <tr *ngFor="let t of maDonne" >
+                <td>{{t.id}}</td>
+                <td>{{t.percentage}}%</td>
+                <td *ngIf="t.etat=='On-time' " class="text-success">{{t.etat}}</td>
+                <td *ngIf="t.etat=='Irratrapable' " class="text-primary">{{t.etat}}</td>
+                <td *ngIf="t.etat=='En retard' " class="text-warning">{{t.etat}}</td>
+                <td *ngIf="t.etat=='Non-définies' " class="text-danger">{{t.etat}}</td>
+                <td class="actions"><a class="icon" href="#"><i class="mdi mdi-plus-circle-o"></i></a></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

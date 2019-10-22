@@ -1,0 +1,81 @@
+<div class="row">
+<div class="col-12 col-xl-12 mb-4 align-items-stretch">
+  <div class="card h-100 border-0 rounded-0" >
+    <div class="card-title mb-1 p-3 d-flex">
+      <h6>Percentage Des Taches En Fonction Du Temps</h6>
+
+
+    <div class="legend d-flex just ml-auto p-0">
+      <div class="flex-fill text-center"><small><button class="list-group-item list-group-item-action" (click)="updateLast10(chart1);"  data-toggle="list" role="tab" aria-controls="home">10 DERNIERS JOURS</button></small></div>
+      <div class="flex-fill text-center"><small><button class="list-group-item list-group-item-action " (click)="updateLast20(chart1);"  data-toggle="list"  role="tab" aria-controls="profile">20 DERNIERS JOURS</button></small></div>
+      <div class="flex-fill text-center"><small><button class="list-group-item list-group-item-action" (click)="updateLast30(chart1);"  data-toggle="list"  role="tab" aria-controls="messages">30 DERNIERS JOURS</button></small></div>
+      <div class="flex-fill text-center"><small><button class="list-group-item list-group-item-action"  data-toggle="list" (click)="updateAll(chart1);" role="tab" aria-controls="settings">DEPUIS TOUJOURS</button></small></div>
+    </div>
+    </div>
+    <div class="card-body">
+      <div class="chart-container" style="position: relative;" >
+        <canvas id="chart-line" width="3" height="1"></canvas>
+      </div>
+    </div>
+    <div class="card-footer">
+
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="row">
+  <div class="col-lg-12 grid-margin stretch-card">
+    <div class="card border-0 rounded-0">
+      <div class="card-title mb-1 p-3 d-flex">
+        <h6>Taches </h6>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>
+                ID
+              </th>
+              <th>
+                Etat
+              </th>
+              <th>
+                Date
+              </th>
+              <th>
+                Percentage
+              </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let t of maDonne ">
+              <td>
+                {{t.id}}
+              </td>
+              <td *ngIf="t.etat == 'On-time' " class="text-success">{{t.etat}}</td>
+              <td *ngIf="t.etat=='Irratrapable'  " class="text-primary">{{t.etat}}</td>
+              <td *ngIf="t.etat=='irratrapable'  " class="text-primary">{{t.etat}}</td>
+              <td *ngIf="t.etat=='En retard' " class="text-warning">{{t.etat}}</td>
+              <td *ngIf="t.etat=='Non-définies' " class="text-danger">{{t.etat}}</td>
+              <td>
+                {{t.date}}
+              </td>
+              <td>
+                {{t.percentage}}%
+              </td>
+
+            </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
